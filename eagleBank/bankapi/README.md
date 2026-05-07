@@ -453,16 +453,6 @@ JUnit 5 + Mockito (`@ExtendWith(MockitoExtension.class)`) — no Spring context,
 | `TransactionServiceTest` | Create (deposit, withdrawal, balance update, field persistence, collision retry, 404, 403, 422), list (200, empty, 404, 403), fetch (200, 404, 403) |
 | `UserServiceTest` | Create (happy path, field mapping, ID pattern), fetch (200, 404, 403), update (name, address, phone, email, null fields unchanged, 404, 403), delete (204, 404, 409) |
 
-### Integration tests (controller layer)
-
-`@SpringBootTest` + `MockMvcBuilders.webAppContextSetup` against real H2 database. Tests the full HTTP stack including JWT filter, path variable pattern validation, request body validation, and all HTTP status codes.
-
-| Test class | Scenarios covered |
-|---|---|
-| `AccountControllerTest` | All 5 account endpoints — 201/400/401/403/404/204 across create, list, fetch, update, delete |
-| `TransactionControllerTest` | All 3 transaction endpoints — 201/400/401/403/404/422 across create, list, fetch |
-| `UserControllerTest` | All 4 user endpoints — 201/400/401/403/404/409/204 across create, fetch, update, delete |
-
 ## Project Structure
 
 ```
